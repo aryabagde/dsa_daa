@@ -37,7 +37,38 @@ class Queue{
 		
 		void enquue(int val){
 			if(isFull()){
-				
+				cout<<"Queue is full"<<endl;
+				return;
+			}
+			else if(isEmpty()){
+				rear = 0;
+				front = 0;
+				arr[rear] = val;
+			}
+			else{
+				rear++;
+				arr[rear] = val;
+			}
+		}
+		
+		int dequeue(){
+			int x;
+			if(isEmpty()){
+				cout<<"Queue is empty"<<endl;
+				return 0;
+			}
+			else if(front == rear){
+				x = arr[front];
+				arr[front] = 0;
+				rear = -1;
+				front = -1;
+				return x;
+			}
+			else{
+				x = arr[front];
+				arr[front] = 0;
+				front++;
+				return x;
 			}
 		}
 };
