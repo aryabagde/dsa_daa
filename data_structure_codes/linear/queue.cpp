@@ -19,6 +19,27 @@ class Queue{
 			}
 			
 		}
+		
+		bool isEmpty(){                    // as we can see in constructor function the intial conditions 
+			if(front == -1 && rear == -1)
+				return true;
+			else 
+				return false;
+			
+		}
+		
+		bool isFull(){
+			if(rear == 4)                 // since the size is 5 and the position starts from 0
+				return true;
+			else
+				return false;
+		}
+		
+		void enquue(int val){
+			if(isFull()){
+				
+			}
+		}
 };
 
 int main(){
