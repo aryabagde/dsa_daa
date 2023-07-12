@@ -35,18 +35,18 @@ class Queue{
 				return false;
 		}
 		
-		void enquue(int val){
+		void enqueue(int val){            //first check if the queue is full or not
 			if(isFull()){
 				cout<<"Queue is full"<<endl;
 				return;
 			}
-			else if(isEmpty()){
-				rear = 0;
-				front = 0;
+			else if(isEmpty()){          // special condition if the queue is empty
+				rear = 0;                //since both rear and front are -1 initially
+				front = 0;               // we need to set them to 0 and then assign to the rear position
 				arr[rear] = val;
 			}
 			else{
-				rear++;
+				rear++;                  //default process is to first increment the rear value and the assign it
 				arr[rear] = val;
 			}
 		}
@@ -57,25 +57,38 @@ class Queue{
 				cout<<"Queue is empty"<<endl;
 				return 0;
 			}
-			else if(front == rear){
-				x = arr[front];
-				arr[front] = 0;
-				rear = -1;
+			else if(front == rear){     //dequeue func to remove the FIFO so first we will assign the value to some x variable 
+				x = arr[front];         //assign the position 0 again to display that it has been dequeued
+				arr[front] = 0;         // special condition if we are dequeuing the first value then we need to again assign
+				rear = -1;              // front and rear -1 or else the next equeue func will not get carried out
 				front = -1;
 				return x;
 			}
 			else{
-				x = arr[front];
+				x = arr[front];         // default is to assign,increment the front and return
 				arr[front] = 0;
 				front++;
 				return x;
 			}
+		}
+		
+		int count(){
+			return (rear-front+1);      // standard math stuff
+		}
+		
+		void display(){
+			cout<<"All values is the Queues are: "<<endl;
+			for(int i=0; i<5; i++){
+				cout<<arr[i]<<" ";
+			}
+			cout<<endl;
 		}
 };
 
 int main(){
 	
 	Queue q1;
+	int option, value;
 	
 	do{
 		
@@ -90,6 +103,41 @@ int main(){
 		
 		cin>>option;
 		
-	}while(option!=0)
+		switch(option){
+			case 0: 
+				break;
+			case 1:
+				cout<<"Enqueue Operation \nEnter an item to Enqueue in the Queue: ";
+				cin>>value;
+				cout<<endl;
+				q1.enqueue(value);
+				break;
+			case 2:
+				cout<<"Dequeue Operation\nDequeueed Value: "<<q1.dequeue()<<endl;
+				break;
+			case 3:
+				if(q1.isEmpty())
+					cout<<"Queue is Empty"<<endl;
+				else
+					cout<<"Queue is not empty"<<endl;
+				break;
+			case 4:
+				if(q1.isFull())
+					cout<<"Queue is Full"<<endl;
+				else
+					cout<<"Queue is not Full"<<endl;
+				break;
+			case 5:
+				cout<<"Count Operation \nCOunt of items in Queue: "<<q1.count()<<endl;
+				break;
+			case 6:
+				cout<<"Display function called "<<endl;
+				q1.display();
+				break;
+			case 7:
+				system("cls");
+		}
+		
+	}while(option!=0);
 	return 0;
 }
