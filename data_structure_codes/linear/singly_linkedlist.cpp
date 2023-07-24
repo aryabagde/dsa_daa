@@ -12,6 +12,11 @@ class Node{
 			data = 0;
 			next = NULL;
 		}
+		
+		Node(int k, int d){
+			key = k;
+			data = d;
+		}
 };
 
 int main(){
