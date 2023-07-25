@@ -19,6 +19,11 @@ class Node{
 		}
 };
 
+class SinglyLinkedList{
+	public:
+		Node
+};
+
 int main(){
 	return 0;
 }
