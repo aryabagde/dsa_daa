@@ -12,4 +12,4 @@ From Simple Snippets
 
 | Striver DSA Sheet|
 |----------|
-|                              | 
+|  Arrays                      | 
