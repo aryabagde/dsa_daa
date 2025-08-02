@@ -12,4 +12,6 @@ From Simple Snippets
 
 | Striver DSA Sheet|
 |----------|
+|  Sorting Algos               |
 |  Arrays                      | 
+
